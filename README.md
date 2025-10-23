@@ -4,11 +4,13 @@
 
 1. Create virtual environment:
 ```
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+python -m venv .venv
+source venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
 2. Install dependencies:
+
+For Python Version 3.11 or Later
 ```
 python -m pip install "pymongo[srv]==3.11"
 ```
@@ -18,9 +20,9 @@ python -m pip install "pymongo[srv]==3.11"
 Edit `config.py` or set .env variables:
 
 ```
-export MONGO_URI="mongodb://localhost:27017/"
-export MONGO_DB="task_management"
-export MONGO_COLLECTION="tasks"
+MONGO_URI="mongodb://localhost:27017/"
+MONGO_DB="taskmanagement"
+MONGO_COLLECTION="tasks"
 ```
 
 ## Usage
