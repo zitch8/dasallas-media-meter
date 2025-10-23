@@ -1,6 +1,5 @@
 from typing import Any, Dict, List
 
-import pymongo
 from pymongo import MongoClient
 from pymongo.errors import PyMongoError
 

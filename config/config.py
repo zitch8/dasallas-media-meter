@@ -9,9 +9,9 @@ class Config:
     DB_TYPE = os.getenv('DB_TYPE', 'mongodb')
     
     # MongoDB Configuration
-    MONGO_URI = os.getenv('MONGO_URI', 'mongodb://localhost:27017/')
-    MONGO_DATABASE = os.getenv('MONGO_DB', 'task_management')
-    MONGO_COLLECTION = os.getenv('MONGO_COLLECTION', 'tasks')
+    MONGO_URI = os.getenv('MONGO_URI')
+    MONGO_DATABASE = os.getenv('MONGO_DB')
+    MONGO_COLLECTION = os.getenv('MONGO_COLLECTION')
     
     @classmethod
     def get_database_config(cls):

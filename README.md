@@ -42,6 +42,7 @@ python main.py
 6. **Exit** - Close the application
 
 ## Project Structure
+```
 dasallas-meida-meter/
 │
 ├── main.py                  # Entry point
@@ -57,4 +58,5 @@ dasallas-meida-meter/
 │   └── config.py            # MongoDB connection details
 ├── requirements.txt
 └── README.md
+```
 

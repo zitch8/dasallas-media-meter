@@ -97,7 +97,7 @@ class TaskCLI:
             task = self.task_manager.add_task(title, description, due_date, priority)
             
             if task:
-                print(f"\n✓ Task created successfully!")
+                print(f"\nTask created successfully!")
                 print(f"Task ID: {task.task_id}")
             else:
                 print("\nFailed to create task")
@@ -145,7 +145,7 @@ class TaskCLI:
         
         # Display tasks
         print(f"\nFound {len(tasks)} task(s):")
-        print("-"*60)
+        print("-"*50)
         
         for i, task in enumerate(tasks, 1):
             self._print_task_summary(i, task)
@@ -229,7 +229,7 @@ class TaskCLI:
 
     def exit_app(self):
         """Exit the application."""
-        print("\n✓ Thank you for using Task Management System!")
+        print("\nThank you for using Task Management System!")
         self.running = False
     
     def _parse_date(self, date_str: str) -> datetime:
@@ -274,9 +274,9 @@ class TaskCLI:
     
     def _print_task_details(self, task: Task):
         """Print detailed task information."""
-        print("\n" + "="*60)
+        print("\n" + "="*50)
         print("TASK DETAILS")
-        print("="*60)
+        print("="*50)
         print(f"Task ID: {task.task_id}")
         print(f"Title: {task.title}")
         print(f"Description: {task.description}")
@@ -284,4 +284,4 @@ class TaskCLI:
         print(f"Priority: {task.priority.value}")
         print(f"Status: {task.status.value}")
         print(f"Created: {task.creation_timestamp.strftime('%Y-%m-%d %H:%M:%S')}")
-        print("="*60)
+        print("="*50)

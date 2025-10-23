@@ -1,4 +1,4 @@
-from typing import List, Optional, Callable
+from typing import List, Optional
 from datetime import datetime
 
 from models.task import Task, Priority, Status
