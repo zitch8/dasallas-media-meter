@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from typing import Optional
 from enum import Enum
 
@@ -32,14 +32,14 @@ class Task:
         self._due_date = due_date
         self._priority = priority
         self._status = status
-        self._creation_timestamp = creation_timestamp
+        self._creation_timestamp = creation_timestamp or datetime.now()
 
     @staticmethod
     def _generate_id() -> str:
         """
         Generate a unique task ID using datetime
         """
-        return datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
+        return datetime.now().strftime("%Y%m%d%H%M%S%f")
     
     # Getters
     @property
@@ -111,8 +111,8 @@ class Task:
             "title": self._title,
             "description": self._description,
             "due_date": self._due_date.isoformat(),
-            "priority": self._priority,
-            "status": self._status,
+            "priority": self._priority.value,
+            "status": self._status.value,
             "creation_timestamp": self._creation_timestamp.isoformat()
         }
     
@@ -122,10 +122,11 @@ class Task:
         Deserialize a task from a dictionary
         """
         return cls(
-            title=data["title"],
-            description=data["description"],
-            due_date=datetime.datetime.fromisoformat(data["due_date"]),
-            priority=data["priority"],
-            status=data.get("status", Status.PENDING),
-            creation_timestamp=datetime.datetime.fromisoformat(data["creation_timestamp"])
+            task_id=data.get('task_id'),
+            title=data['title'],
+            description=data['description'],
+            due_date=datetime.fromisoformat(data['due_date']),
+            priority=Priority(data['priority']),
+            status=Status(data['status']),
+            creation_timestamp=datetime.fromisoformat(data["creation_timestamp"])
         )

@@ -43,7 +43,7 @@ class DatabaseManager(DatabaseInterface):
             self.collection.insert_one(task_dict)
             return True
         except PyMongoError as e:
-            print(f"Error adding task: {e}")
+            print(f"Error adding task1: {e}")
             return False
         
     def get_task(self, task_id):
@@ -72,7 +72,7 @@ class DatabaseManager(DatabaseInterface):
     def update_task(self, task_id: str, updates: Dict[str, Any]) -> bool:
         try:
             result = self.collection.update_one(
-                {"_task_id": task_id},
+                {"task_id": task_id},
                 {"$set": updates}
             )
             return result.modified_count >= 1
@@ -82,7 +82,7 @@ class DatabaseManager(DatabaseInterface):
         
     def delete_task(self, task_id: str) -> bool:
         try:
-            result = self.collection.delete_one({"_task_id": task_id})
+            result = self.collection.delete_one({"task_id": task_id})
             return result.deleted_count >= 1
         except PyMongoError as e:
             print(f"Error deleting task: {e}")

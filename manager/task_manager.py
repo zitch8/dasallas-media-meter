@@ -37,7 +37,8 @@ class TaskManager:
                 description=description,
                 due_date=due_date,
                 priority=priority)
-            return task
+            if self.db_interface.add_task(task):
+                return task
         except Exception as e:
             print(f"Error adding task: {e}")
             return None
