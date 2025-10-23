@@ -46,6 +46,17 @@ class DatabaseManager(DatabaseInterface):
         except PyMongoError as e:
             print(f"Error adding task: {e}")
             return False
+        
+    def get_task(self, task_id):
+        try:
+            doc = self.collection.find_one({"_task_id": task_id})
+            if doc:
+                doc.pop('_id', None)
+                return Task.from_dict(doc)
+            return None
+        except PyMongoError as e:
+            print(f"Error retrieving task: {e}")
+            return None
 
     def get_all_tasks(self) -> List[Task]:
         try:
