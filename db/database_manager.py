@@ -48,7 +48,7 @@ class DatabaseManager(DatabaseInterface):
         
     def get_task(self, task_id):
         try:
-            doc = self.collection.find_one({"_task_id": task_id})
+            doc = self.collection.find_one({"task_id": task_id})
             if doc:
                 doc.pop('_id', None)
                 return Task.from_dict(doc)

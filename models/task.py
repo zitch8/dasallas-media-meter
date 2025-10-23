@@ -107,6 +107,7 @@ class Task:
         Serialize the task to a dictionary
         """
         return {
+            "task_id": self._task_id,
             "title": self._title,
             "description": self._description,
             "due_date": self._due_date.isoformat(),
