@@ -1,13 +1,13 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 
 class Config:
     """Application configuration."""
-    
-    # Database Configuration
-    DB_TYPE = os.getenv('DB_TYPE', 'mongodb')
-    
+    env_path = Path(__file__).resolve().parent.parent / ".env"
+    load_dotenv(dotenv_path=env_path)
+
     # MongoDB Configuration
     MONGO_URI = os.getenv('MONGO_URI')
     MONGO_DATABASE = os.getenv('MONGO_DB')
