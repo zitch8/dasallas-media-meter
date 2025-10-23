@@ -10,7 +10,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 2. Install dependencies:
 ```
-pip install pymongo
+python -m pip install "pymongo[srv]==3.11"
 ```
 
 ## Configuration
