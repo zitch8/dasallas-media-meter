@@ -126,17 +126,10 @@ class TaskCLI:
         if priority_input:
             filter_priority = self._parse_priority(priority_input)
         
-        # Get sort option
-        print("\nSort by: 1=Created, 2=Due Date, 3=Priority, 4=Title")
-        sort_choice = input("Sort option (default=1): ").strip() or '1'
-        sort_map = {'1': 'created_at', '2': 'due_date', '3': 'priority', '4': 'title'}
-        sort_by = sort_map.get(sort_choice, 'created_at')
-        
         # Get tasks
         tasks = self.task_manager.list_tasks(
             filter_status=filter_status,
-            filter_priority=filter_priority,
-            sort_by=sort_by
+            filter_priority=filter_priority
         )
         
         if not tasks:

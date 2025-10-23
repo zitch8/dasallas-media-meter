@@ -76,7 +76,7 @@ class TaskManager:
             filtered = [t for t in filtered if t.due_date <= due_before]
         
         return filtered
-
+    
     def update_task(self, task_id: str, **updates) -> bool:
         try:
             task = self.get_task(task_id)
