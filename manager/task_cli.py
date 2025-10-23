@@ -34,11 +34,13 @@ class TaskCLI:
 
     def entry(self):
         """Entry message"""
+
         print("TASK MANAGEMENT SYSTEM")
         print("="*50)
     
     def display_menu(self):
         """Display main menu"""
+
         print("\n" + "-"*50)
         print("MAIN MENU")
         print("-"*50)
@@ -52,6 +54,7 @@ class TaskCLI:
 
     def handle_choice(self, choice: str):
         """Handle user menu choice"""
+
         actions = {
             '1': self.add_task,
             '2': self.list_tasks,
@@ -69,9 +72,9 @@ class TaskCLI:
 
     def add_task(self):
         """Add a new task."""
-        print("\n" + "="*60)
+        print("\n" + "="*50)
         print("ADD NEW TASK")
-        print("="*60)
+        print("="*50)
         
         try:
             title = input("Title: ").strip()
@@ -163,6 +166,8 @@ class TaskCLI:
         
         updates = {}
         
+        # Update depending on values provided
+
         title = input(f"Title [{task.title}]: ").strip()
         if title:
             updates['title'] = title
@@ -260,8 +265,8 @@ class TaskCLI:
 
     def _print_task_summary(self, index: int, task: Task):
         """Print task summary."""
-        status_icon = "✓" if task.status == Status.COMPLETED else "○"
-        priority_icon = {"Low": "↓", "Medium": "→", "High": "↑"}[task.priority.value]
+        status_icon = "Complete" if task.status == Status.COMPLETED else "Incomplete"
+        priority_icon = task.priority.value
         
         print(f"{index}. {status_icon} [{priority_icon}] {task.title[:40]}")
         print(f"   ID: {task.task_id[:16]}... | Due: {task.due_date.strftime('%Y-%m-%d')} | Status: {task.status.value}")
@@ -278,5 +283,5 @@ class TaskCLI:
         print(f"Due Date: {task.due_date.strftime('%Y-%m-%d %H:%M')}")
         print(f"Priority: {task.priority.value}")
         print(f"Status: {task.status.value}")
-        print(f"Created: {task.created_timestamp.strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"Created: {task.creation_timestamp.strftime('%Y-%m-%d %H:%M:%S')}")
         print("="*60)
