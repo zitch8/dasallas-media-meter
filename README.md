@@ -16,7 +16,10 @@ python -m pip install "pymongo[srv]==3.11"
 ```
 
 ## Configuration
-
+MongoDB database
+1. Create database, name it **taskmanagement**
+2. Create collection inside the database, name it **tasks**
+   
 Edit `config.py` or set .env variables:
 
 ```
